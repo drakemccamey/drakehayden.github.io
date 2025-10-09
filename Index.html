@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drake Hayden Music</title>
+  <meta name="description" content="Official landing page for Drake Hayden — folk‑pop leaning melodies, moody and warm. Shows, music, Patreon, and contact." />
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root {
+      --forest: #2d4a3a;   /* forest green */
+      --navy:   #162030;   /* deep navy */
+      --bronze: #a97c50;   /* bronze */
+      --cream:  #edece8;   /* cream */
+      --ink:    #1a1a1a;   /* body text */
+    }
+
+    /* Reset-ish */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--cream);
+    }
+
+    a { color: var(--bronze); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--navy); color: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,.12);
+      backdrop-filter: saturate(150%) blur(6px);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
+    .brand { display: flex; align-items: center; gap: .75rem; }
+    .brand img { height: 36px; width: auto; display: block; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+    .brand span { font-weight: 600; letter-spacing: .04em; }
+    nav a { color: var(--cream); opacity: .9; margin-left: 1rem; }
+    nav a:hover { color: var(--bronze); opacity: 1; }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(1200px 500px at 20% -10%, rgba(169,124,80,.2), transparent 60%),
+        radial-gradient(1200px 500px at 120% 10%, rgba(45,74,58,.25), transparent 60%),
+        linear-gradient(180deg, #f7f6f2, var(--cream));
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .hero-inner { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; padding: 6rem 0 3rem; }
+    .tag { display:inline-block; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color: var(--forest); background:#f1efe9; border:1px solid rgba(0,0,0,.08); padding:.35rem .6rem; border-radius:999px; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3rem); margin:.8rem 0 .6rem; color: var(--navy); line-height:1.2; }
+    .lead { font-size: clamp(1rem, 1.8vw, 1.125rem); color:#333; max-width: 60ch; }
+    .cta { display:flex; gap:.8rem; margin-top:1.25rem; flex-wrap: wrap; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius:14px; border:1px solid rgba(0,0,0,.12); font-weight:600; }
+    .btn.primary { background: var(--forest); color: #fff; border-color: rgba(0,0,0,.0); }
+    .btn.primary:hover { filter: brightness(1.05); }
+    .btn.secondary { background: #fff; color: var(--navy); }
+
+    .hero-card { background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:1rem; box-shadow: 0 10px 30px rgba(0,0,0,.05); }
+    .hero-card .frame { aspect-ratio: 1/1; width:100%; border-radius:14px; background:#faf9f6; border:1px dashed rgba(0,0,0,.12); display:grid; place-items:center; padding:1rem; }
+    .hero-card .frame img { max-width: 85%; height:auto; opacity:.95; }
+
+    /* Sections */
+    section { padding: 3rem 0; }
+    .section-title { font-size: clamp(1.25rem, 2.4vw, 1.6rem); color: var(--navy); margin: 0 0 .75rem; }
+    .card-row { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:1rem; }
+
+    /* About blurb */
+    .about { display:grid; grid-template-columns: 1.2fr .8fr; gap: 1.5rem; }
+    .about p { margin: 0 0 .75rem; }
+    .about .fact { font-size:.95rem; color:#333; }
+
+    /* Footer */
+    footer { padding: 2.5rem 0; color: #fff; background: linear-gradient(180deg, var(--forest), var(--navy)); }
+    .socials { display:flex; gap:.9rem; flex-wrap: wrap; }
+    .socials a { display:inline-flex; align-items:center; gap:.45rem; color:#fff; opacity:.95; border:1px solid rgba(255,255,255,.2); padding:.45rem .7rem; border-radius:999px; }
+    .socials a:hover { opacity:1; background: rgba(255,255,255,.06); }
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero-inner, .about { grid-template-columns: 1fr; }
+      .hero-inner { padding: 4rem 0 2rem; }
+      .card-row { grid-template-columns: 1fr; }
+      nav { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- Replace src with /assets/logo.png in your repo -->
+        <img src="assets/logo.png" alt="Drake Hayden Music logo" />
+        <span>Drake Hayden</span>
+      </div>
+      <nav>
+        <a href="#music">Music</a>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="tag">Folk‑pop leaning melodies</span>
+        <h1>Moody, warm, and a little mystical.</h1>
+        <p class="lead">Hi, I’m <strong>Drake Hayden</strong>. I write honest songs that live where glam/artsy meets soft/mystical — think Bowie/Queen attitude with a modern folk heart. New music is coming; for now, here’s a hub for music, shows, and ways to support.</p>
+        <div class="cta">
+          <a class="btn primary" href="#support">Join <em>Soundcheck</em> on Patreon</a>
+          <a class="btn secondary" href="#music">Listen / Watch</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="frame">
+          <!-- Replace with hero image later if desired -->
+          <img src="assets/logo.png" alt="Drake Hayden wordmark" />
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Music / Links -->
+  <section id="music">
+    <div class="container">
+      <h2 class="section-title">Music & Links</h2>
+      <div class="card-row">
+        <div class="card">
+          <h3 style="margin:.25rem 0 .25rem; color:var(--forest)">Latest Singles</h3>
+          <p>Streaming links coming soon. For now, hear demos of <em>Carless Things</em>, <em>Future Tense</em>, and <em>The Same</em> at shows & socials.</p>
+          <p style="margin:0"><a href="#contact">Booking & press →</a></p>
+        </div>
+        <div class="card">
+          <h3 style="margin:.25rem 0 .25rem; color:var(--forest)">Watch</h3>
+          <p>Live clips, studio behind‑the‑scenes, and podcast bits on Instagram/TikTok.</p>
+          <p style="margin:0"><a href="https://www.instagram.com/drakehaydenmusic" target="_blank" rel="noopener">@drakehaydenmusic →</a></p>
+        </div>
+        <div class="card">
+          <h3 style="margin:.25rem 0 .25rem; color:var(--forest)">Shows</h3>
+          <p>Open mics and pop‑ups around Texas. Next dates posted on socials. A proper shows page will land here later.</p>
+          <p style="margin:0"><a href="#contact">Ask about booking →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <div>
+        <h2 class="section-title">About Drake</h2>
+        <p>I make songs that feel like late‑night drives: hushed, honest, and a little cinematic. I love the drama of glam and the intimacy of folk — somewhere between Bowie’s theater and Fleetwood Mac’s glow. If you’re into <em>pop‑folk leaning melodies</em> with a confessional edge, you’re in the right place.</p>
+        <p class="fact">Based in Texas • Manager/host at Hico Hall • Building the first releases one show at a time.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0; color:var(--forest)">Quick Facts</h3>
+        <ul style="margin:0 0 .5rem 1.1rem; padding:0">
+          <li>Debut singles rolling out soon</li>
+          <li>Patreon community: <em>Soundcheck</em></li>
+          <li>Podcast: bits, music updates, and what I’m listening to</li>
+        </ul>
+        <a class="btn secondary" href="#support">Support the music</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support / Newsletter -->
+  <section id="support">
+    <div class="container">
+      <h2 class="section-title">Support the Music</h2>
+      <div class="card-row">
+        <div class="card">
+          <h3 style="margin:.25rem 0 .25rem; color:var(--forest)">Join <em>Soundcheck</em> on Patreon</h3>
+          <p>Get a monthly behind‑the‑music podcast, studio photos, and vote on cover songs. Your support directly funds new releases.</p>
+          <p style="margin:0"><a href="https://www.patreon.com/c/DrakeHaydenMusic" target="_blank" rel="noopener">Become a member →</a></p>
+        </div>
+        <div class="card">
+          <h3 style="margin:.25rem 0 .25rem; color:var(--forest)">Email Updates</h3>
+          <p>Be first to know about shows, releases, and exclusive drops.</p>
+          <!-- Replace this simple form with your Zoho Forms embed when ready -->
+          <form action="#" method="post" onsubmit="alert('Thanks! You\'re on the list.'); return false;">
+            <label for="email" style="display:block; font-weight:600">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" style="width:100%; padding:.7rem .8rem; border-radius:12px; border:1px solid rgba(0,0,0,.15); margin:.35rem 0 .6rem" />
+            <button class="btn primary" type="submit">Subscribe</button>
+          </form>
+          <p style="font-size:.85rem; opacity:.8; margin:.5rem 0 0">We won’t spam you. Unsubscribe anytime.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:.25rem 0 .25rem; color:var(--forest)">Tip Jar</h3>
+          <p>If you’d like to toss a few dollars in the guitar case:</p>
+          <p style="margin:0"><a href="#">Venmo/PayPal links coming soon →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p style="margin:.2rem 0">Booking / press: <a href="mailto:drake@drakehaydenmusic.com">drake@drakehaydenmusic.com</a></p>
+        <div class="socials" style="margin-top:.6rem">
+          <a href="https://www.instagram.com/drakehaydenmusic" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 2 .2 2.5.4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.5.3 1.3.4 2.5.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 2-.4 2.5-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.5.2-1.3.3-2.5.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-2-.2-2.5-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.5-.3-1.3-.4-2.5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-2 .4-2.5.2-.6.5-1 1-1.5s.9-.8 1.5-1c.5-.2 1.3-.3 2.5-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-2 .4-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.2.4-.3 1-.4 2-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.4 2 .2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.2 1 .3 2 .4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 2-.4.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.2-.4.3-1 .4-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.4-2-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.2-1-.3-2-.4-1.2-.1-1.6-.1-4.7-.1Zm0 2.8a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8m0 1.8a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Zm5.5-1.3a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Z"/></svg>
+            <span>@drakehaydenmusic</span>
+          </a>
+          <a href="https://tiktok.com/@drakehaydenmusic" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 2c.2 1.2 1.1 5 5.2 5v3c-2.2 0-4.1-.8-5.2-1.8v7.7a6.9 6.9 0 1 1-6.9-6.9c.3 0 .7 0 1 .1v3.2c-.3-.1-.6-.1-1-.1a3.7 3.7 0 1 0 3.7 3.7V2h3.2Z"/></svg>
+            <span>@drakehaydenmusic</span>
+          </a>
+          <a href="mailto:drake@drakehaydenmusic.com" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.5l-8 5-8-5V6h16ZM4 18V9.3l8 5 8-5V18H4Z"/></svg><span>Email</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;">
+      <div>© <span id="y"></span> Drake Hayden Music</div>
+      <div style="opacity:.85">Straight‑forward pricing. Simple booking. Schedule your tour at hicohall.com.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
