@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Music — Drake Hayden</title>
+  <meta name="description" content="Hear pop‑folk song snippets from Drake Hayden. Honest demos and early cuts. Support to help fund the first releases." />
+  <style>
+    :root{--forest:#2d4a3a;--navy:#162030;--bronze:#a97c50;--cream:#edece8;--ink:#1a1a1a;--line:rgba(169,124,80,.25)}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial;line-height:1.6;color:var(--ink);background:radial-gradient(1200px 600px at 10% -10%, rgba(169,124,80,.07), transparent 60%),radial-gradient(1200px 600px at 110% 0%, rgba(45,74,58,.06), transparent 60%),linear-gradient(180deg,#f9f8f4,var(--cream));background-blend-mode:multiply,multiply,normal}
+    a{color:var(--bronze);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1100px,92vw);margin:0 auto}
+    header{position:sticky;top:0;z-index:10;background:var(--navy);color:var(--cream);border-bottom:1px solid rgba(0,0,0,.12);backdrop-filter:saturate(150%) blur(6px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand img{height:36px;width:auto}
+    .brand span{font-weight:600;letter-spacing:.04em}
+    nav a{color:var(--cream);opacity:.9;margin-left:1rem}
+    nav a:hover{color:var(--bronze);opacity:1}
+
+    .hero{background:linear-gradient(180deg,#f7f6f2,var(--cream));border-bottom:1px solid rgba(0,0,0,.06)}
+    .hero-inner{padding:4rem 0 2rem}
+    h1{font-size:clamp(2rem,4vw,2.6rem);margin:.2rem 0 .4rem;color:var(--navy)}
+    .lead{color:#333;max-width:60ch}
+
+    section{padding:2.2rem 0}
+    section+section{border-top:1px solid var(--line)}
+
+    .track{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:16px 18px;box-shadow:0 12px 30px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.05)}
+    .track h3{margin:.1rem 0;color:var(--forest)}
+    .meta{margin:.25rem 0 .5rem;color:#444;font-size:.95rem}
+    audio{width:100%;height:40px}
+    .actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:12px;border:1px solid rgba(0,0,0,.12);font-weight:600;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.06)}
+    .btn.primary{background:var(--forest);color:#fff;border-color:transparent}
+
+    .note{color:#555;font-size:.9rem;margin-top:.8rem}
+
+    @media(max-width:760px){.track{grid-template-columns:1fr}.actions{justify-content:flex-start}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <a href="/" aria-label="Home"><img src="assets/logo.png" alt="Drake Hayden Music logo" /></a>
+        <span>Drake Hayden</span>
+      </div>
+      <nav>
+        <a href="/music">Music</a>
+        <a href="/shows">Shows</a>
+        <a href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Music</h1>
+      <p class="lead">Early snippets and demos — pop‑folk songs about growing up, falling apart, and trying again. If you want to support a release, you can buy a track or tip below.</p>
+    </div>
+  </section>
+
+  <!-- Tracks -->
+  <section>
+    <div class="container">
+      <!-- Track 1 -->
+      <div class="track">
+        <div>
+          <h3>Carless Things</h3>
+          <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
+          <audio controls src="assets/snippets/carless-things.mp3">
+            Your browser does not support the audio element.
+          </audio>
+          <p class="note">If the audio doesn’t play yet, upload your snippet to <code>assets/snippets/carless-things.mp3</code>.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="mailto:drake@drakehaydenmusic.com?subject=Buy%20Carless%20Things%20(Demo)&body=Hi%20Drake%2C%20I%E2%80%99d%20like%20to%20buy%20Carless%20Things%20(Demo)." target="_blank" rel="noopener">Buy</a>
+          <a class="btn primary" href="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI?topic=Song%20Support&song=Carless%20Things" target="_blank" rel="noopener">Support</a>
+        </div>
+      </div>
+
+      <!-- Track 2 -->
+      <div class="track" style="margin-top:12px">
+        <div>
+          <h3>Future Tense</h3>
+          <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
+          <audio controls src="assets/snippets/future-tense.mp3"></audio>
+          <p class="note">Upload to <code>assets/snippets/future-tense.mp3</code>.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="mailto:drake@drakehaydenmusic.com?subject=Buy%20Future%20Tense%20(Demo)&body=Hi%20Drake%2C%20I%E2%80%99d%20like%20to%20buy%20Future%20Tense%20(Demo)." target="_blank" rel="noopener">Buy</a>
+          <a class="btn primary" href="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI?topic=Song%20Support&song=Future%20Tense" target="_blank" rel="noopener">Support</a>
+        </div>
+      </div>
+
+      <!-- Track 3 -->
+      <div class="track" style="margin-top:12px">
+        <div>
+          <h3>The Same</h3>
+          <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
+          <audio controls src="assets/snippets/the-same.mp3"></audio>
+          <p class="note">Upload to <code>assets/snippets/the-same.mp3</code>.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="mailto:drake@drakehaydenmusic.com?subject=Buy%20The%20Same%20(Demo)&body=Hi%20Drake%2C%20I%E2%80%99d%20like%20to%20buy%20The%20Same%20(Demo)." target="_blank" rel="noopener">Buy</a>
+          <a class="btn primary" href="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI?topic=Song%20Support&song=The%20Same" target="_blank" rel="noopener">Support</a>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:14px">These are unreleased demos shared for listening here only — please don’t repost or redistribute.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="padding:2.2rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)">
+      <p>© <span id="y"></span> Drake Hayden Music</p>
+      <p style="opacity:.9;margin-top:.3rem">Thanks for listening. More music soon.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
