@@ -39,6 +39,14 @@
 
     .note{color:#555;font-size:.9rem;margin-top:.8rem}
 
+    /* Modal */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:1rem;z-index:50}
+    .sheet{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;max-width:520px;width:100%;padding:1rem 1rem 1.1rem;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    .sheet h3{margin:.2rem 0 .75rem;color:var(--navy)}
+    .payrow{display:flex;gap:.6rem;flex-wrap:wrap}
+    .payrow a{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .85rem;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:#fafafa}
+    .close{float:right;border:none;background:transparent;font-size:1.2rem;cursor:pointer}
+
     @media(max-width:760px){.track{grid-template-columns:1fr}.actions{justify-content:flex-start}}
   </style>
 </head>
@@ -62,7 +70,7 @@
   <section class="hero">
     <div class="container hero-inner">
       <h1>Music</h1>
-      <p class="lead">Early snippets and demos — pop‑folk songs about growing up, falling apart, and trying again. If you want to support a release, you can buy a track or tip below.</p>
+      <p class="lead">Early snippets and demos — pop‑folk songs about growing up, falling apart, and trying again. If you want to support a release, tap Support.</p>
     </div>
   </section>
 
@@ -74,14 +82,10 @@
         <div>
           <h3>Carless Things</h3>
           <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
-          <audio controls src="assets/snippets/carless-things.mp3">
-            Your browser does not support the audio element.
-          </audio>
-          <p class="note">If the audio doesn’t play yet, upload your snippet to <code>assets/snippets/carless-things.mp3</code>.</p>
+          <audio controls src="assets/snippets/carless-things.mp3">Your browser does not support the audio element.</audio>
         </div>
         <div class="actions">
-          <a class="btn" href="mailto:drake@drakehaydenmusic.com?subject=Buy%20Carless%20Things%20(Demo)&body=Hi%20Drake%2C%20I%E2%80%99d%20like%20to%20buy%20Carless%20Things%20(Demo)." target="_blank" rel="noopener">Buy</a>
-          <a class="btn primary" href="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI?topic=Song%20Support&song=Carless%20Things" target="_blank" rel="noopener">Support</a>
+          <button class="btn primary support-btn" data-song="Carless Things">Support Drake</button>
         </div>
       </div>
 
@@ -91,11 +95,9 @@
           <h3>Future Tense</h3>
           <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
           <audio controls src="assets/snippets/future-tense.mp3"></audio>
-          <p class="note">Upload to <code>assets/snippets/future-tense.mp3</code>.</p>
         </div>
         <div class="actions">
-          <a class="btn" href="mailto:drake@drakehaydenmusic.com?subject=Buy%20Future%20Tense%20(Demo)&body=Hi%20Drake%2C%20I%E2%80%99d%20like%20to%20buy%20Future%20Tense%20(Demo)." target="_blank" rel="noopener">Buy</a>
-          <a class="btn primary" href="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI?topic=Song%20Support&song=Future%20Tense" target="_blank" rel="noopener">Support</a>
+          <button class="btn primary support-btn" data-song="Future Tense">Support Drake</button>
         </div>
       </div>
 
@@ -105,17 +107,29 @@
           <h3>The Same</h3>
           <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
           <audio controls src="assets/snippets/the-same.mp3"></audio>
-          <p class="note">Upload to <code>assets/snippets/the-same.mp3</code>.</p>
         </div>
         <div class="actions">
-          <a class="btn" href="mailto:drake@drakehaydenmusic.com?subject=Buy%20The%20Same%20(Demo)&body=Hi%20Drake%2C%20I%E2%80%99d%20like%20to%20buy%20The%20Same%20(Demo)." target="_blank" rel="noopener">Buy</a>
-          <a class="btn primary" href="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI?topic=Song%20Support&song=The%20Same" target="_blank" rel="noopener">Support</a>
+          <button class="btn primary support-btn" data-song="The Same">Support Drake</button>
         </div>
       </div>
 
-      <p class="note" style="margin-top:14px">These are unreleased demos shared for listening here only — please don’t repost or redistribute.</p>
+      <p class="note" style="margin-top:14px">Unreleased demos shared for listening here only — thanks for keeping them private.</p>
     </div>
   </section>
+
+  <!-- Support Modal -->
+  <div class="overlay" id="supportOverlay" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="supportTitle">
+      <button class="close" id="closeSupport" aria-label="Close">×</button>
+      <h3 id="supportTitle">Support Drake</h3>
+      <p style="margin:.4rem 0 1rem;color:#444">Choose a payment option below. (Your note will include the song title.)</p>
+      <div class="payrow" id="payRow">
+        <a id="cashapp" target="_blank" rel="noopener" href="https://cash.app/$drakemccamey">Cash App: $drakemccamey</a>
+        <a id="venmo" target="_blank" rel="noopener" href="https://venmo.com/u/DrakeMcCamey">Venmo: @DrakeMcCamey</a>
+        <a id="paypal" target="_blank" rel="noopener" href="https://paypal.me/drakemccamey">PayPal</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -125,6 +139,39 @@
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+
+    // Modal logic
+    const overlay = document.getElementById('supportOverlay');
+    const closeBtn = document.getElementById('closeSupport');
+    const title = document.getElementById('supportTitle');
+    const cash = document.getElementById('cashapp');
+    const venmo = document.getElementById('venmo');
+    const paypal = document.getElementById('paypal');
+
+    function openModal(song){
+      // Add the song title into the links as a note / memo when supported
+      const note = encodeURIComponent(`Support for ${song}`);
+      cash.href = `https://cash.app/$drakemccamey?note=${note}`;
+      venmo.href = `https://venmo.com/u/DrakeMcCamey?txn=pay&note=${note}`;
+      paypal.href = `https://paypal.me/drakemccamey`;
+      title.textContent = `Support Drake — ${song}`;
+      overlay.style.display = 'flex';
+      overlay.setAttribute('aria-hidden','false');
+    }
+
+    function closeModal(){
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden','true');
+    }
+
+    document.querySelectorAll('.support-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>openModal(btn.dataset.song));
+    });
+    overlay.addEventListener('click',(e)=>{ if(e.target===overlay) closeModal(); });
+    closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
+  </script>
 </body>
 </html>
