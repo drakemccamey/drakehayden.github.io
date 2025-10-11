@@ -12,7 +12,7 @@
       --bronze: #a97c50;
       --cream: #edece8;
       --ink: #1a1a1a;
-      --line: rgba(169,124,80,.25); /* bronze at low alpha for dividers */
+      --line: rgba(169,124,80,.25);
     }
 
     * { box-sizing: border-box; }
@@ -107,6 +107,8 @@
       width:100%;
       border-radius:16px;
       box-shadow:0 12px 30px rgba(0,0,0,.08);
+      aspect-ratio: 4/5;
+      object-fit: cover;
     }
     .pull{
       margin:.75rem 0 0;
@@ -133,12 +135,13 @@
     #contact .section-title{
       color: var(--cream);
     }
+    /* Only inline links go white; buttons keep their own colors */
     #about a:not(.btn),
-#contact a:not(.btn){
-  color: #ffffff;
-  text-decoration-color: rgba(255,255,255,.6);
-}
+    #contact a:not(.btn){
+      color: #ffffff;
+      text-decoration-color: rgba(255,255,255,.6);
     }
+
     /* Keep highlight cards readable on bronze */
     #about .about-highlights div{
       background:#ffffff;
@@ -146,12 +149,14 @@
       border-color: rgba(0,0,0,.06);
       box-shadow:0 8px 20px rgba(0,0,0,.08);
     }
+
     /* Pull quote adapts on bronze */
     #about .pull{
       background: rgba(255,255,255,.08);
       color: var(--cream);
       border-left-color: #fff;
     }
+
     /* Contact card stays white on bronze for legibility */
     #contact .card{
       background: #fff;
@@ -160,38 +165,14 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.05);
     }
     #contact .card a{ color: var(--bronze); }
+
     /* —— Fix: readable copy on bronze + keep buttons dark —— */
+    #about .about-text p,
+    #contact .card p { color: #ffffff; } /* crisp white body copy on bronze */
 
-/* 1) Make body copy high-contrast on bronze */
-#about .about-text p,
-#about .pull,
-#contact .card p {
-  color: #ffffff; /* crisp white on bronze */
-}
-
-/* 2) Keep the white highlight cards DARK (not inheriting white) */
-#about .about-highlights div,
-#about .about-highlights div * {
-  color: var(--ink); /* #1a1a1a */
-}
-
-/* 3) Only inline links turn white — buttons keep their own text color */
-#about a:not(.btn),
-#contact a:not(.btn){
-  color: #ffffff;
-  text-decoration-color: rgba(255,255,255,.6);
-}
-
-/* 4) Ensure button styles are correct on bronze */
-.btn.secondary{
-  background:#fff;
-  color: var(--navy);
-}
-#about .btn.primary,
-#contact .btn.primary{
-  background: var(--forest);
-  color:#fff;
-}
+    /* Ensure secondary buttons stay dark text on white */
+    .btn.secondary{ background:#fff; color: var(--navy); }
+    #about .btn.primary, #contact .btn.primary{ background: var(--forest); color:#fff; }
   </style>
 </head>
 <body>
@@ -255,10 +236,9 @@
       </div>
 
       <aside class="about-media">
-        <img src="assets/IMG_5107 2.JPG" alt="Drake Hayden" />
-        <blockquote class="pull">
-          “Simple stories, honest melodies.”
-        </blockquote>
+        <!-- Encode the space in the filename -->
+        <img src="assets/IMG_5107%202.JPG" alt="Drake Hayden" />
+        <blockquote class="pull">“Simple stories, honest melodies.”</blockquote>
       </aside>
     </div>
   </section>
