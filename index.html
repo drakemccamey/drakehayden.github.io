@@ -133,10 +133,11 @@
     #contact .section-title{
       color: var(--cream);
     }
-    #about a,
-    #contact a{
-      color: #ffffff;
-      text-decoration-color: rgba(255,255,255,.6);
+    #about a:not(.btn),
+#contact a:not(.btn){
+  color: #ffffff;
+  text-decoration-color: rgba(255,255,255,.6);
+}
     }
     /* Keep highlight cards readable on bronze */
     #about .about-highlights div{
