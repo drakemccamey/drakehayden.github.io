@@ -160,6 +160,38 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.05);
     }
     #contact .card a{ color: var(--bronze); }
+    /* —— Fix: readable copy on bronze + keep buttons dark —— */
+
+/* 1) Make body copy high-contrast on bronze */
+#about .about-text p,
+#about .pull,
+#contact .card p {
+  color: #ffffff; /* crisp white on bronze */
+}
+
+/* 2) Keep the white highlight cards DARK (not inheriting white) */
+#about .about-highlights div,
+#about .about-highlights div * {
+  color: var(--ink); /* #1a1a1a */
+}
+
+/* 3) Only inline links turn white — buttons keep their own text color */
+#about a:not(.btn),
+#contact a:not(.btn){
+  color: #ffffff;
+  text-decoration-color: rgba(255,255,255,.6);
+}
+
+/* 4) Ensure button styles are correct on bronze */
+.btn.secondary{
+  background:#fff;
+  color: var(--navy);
+}
+#about .btn.primary,
+#contact .btn.primary{
+  background: var(--forest);
+  color:#fff;
+}
   </style>
 </head>
 <body>
