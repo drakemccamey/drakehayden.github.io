@@ -21,12 +21,10 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
       line-height: 1.6;
       color: var(--ink);
-      background: 
-        /* subtle parchment texture using layered gradients (no external images) */
+      background:
         radial-gradient(1200px 600px at 10% -10%, rgba(169,124,80,.07), transparent 60%),
         radial-gradient(1200px 600px at 110% 0%, rgba(45,74,58,.06), transparent 60%),
         linear-gradient(180deg, #f9f8f4, var(--cream));
-      /* tiny noise effect */
       background-blend-mode: multiply, multiply, normal;
     }
 
@@ -79,50 +77,88 @@
       nav { display:none; }
       iframe { height: 550px; }
     }
-    /* About section layout */
-.about-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:2rem;
-  align-items:start;
-}
-.about-text p{ max-width:60ch; }
-.about-highlights{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:1rem 0 0;
-}
-.about-highlights div{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:14px;
-  padding:.9rem;
-  box-shadow:0 8px 20px rgba(0,0,0,.06);
-}
-.about-highlights h4{
-  margin:.1rem 0 .25rem;
-  color:var(--forest);
-}
-.about-media img{
-  width:100%;
-  border-radius:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
-}
-.pull{
-  margin:.75rem 0 0;
-  padding:.6rem .8rem;
-  font-style:italic;
-  color:#333;
-  border-left:3px solid var(--bronze);
-  background:rgba(169,124,80,.06);
-  border-radius:8px;
-}
-@media(max-width:880px){
-  .about-grid{ grid-template-columns:1fr; }
-  .about-highlights{ grid-template-columns:1fr; }
-}
 
+    /* About section layout */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:2rem;
+      align-items:start;
+    }
+    .about-text p{ max-width:60ch; }
+    .about-highlights{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin:1rem 0 0;
+    }
+    .about-highlights div{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:14px;
+      padding:.9rem;
+      box-shadow:0 8px 20px rgba(0,0,0,.06);
+    }
+    .about-highlights h4{
+      margin:.1rem 0 .25rem;
+      color:var(--forest);
+    }
+    .about-media img{
+      width:100%;
+      border-radius:16px;
+      box-shadow:0 12px 30px rgba(0,0,0,.08);
+    }
+    .pull{
+      margin:.75rem 0 0;
+      padding:.6rem .8rem;
+      font-style:italic;
+      color:#333;
+      border-left:3px solid var(--bronze);
+      background:rgba(169,124,80,.06);
+      border-radius:8px;
+    }
+    @media(max-width:880px){
+      .about-grid{ grid-template-columns:1fr; }
+      .about-highlights{ grid-template-columns:1fr; }
+    }
+
+    /* ---- THEME: Bronze background for About + Contact sections ---- */
+    #about,
+    #contact{
+      background: var(--bronze);
+      color: var(--cream);
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+    #about .section-title,
+    #contact .section-title{
+      color: var(--cream);
+    }
+    #about a,
+    #contact a{
+      color: #ffffff;
+      text-decoration-color: rgba(255,255,255,.6);
+    }
+    /* Keep highlight cards readable on bronze */
+    #about .about-highlights div{
+      background:#ffffff;
+      color: var(--ink);
+      border-color: rgba(0,0,0,.06);
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+    /* Pull quote adapts on bronze */
+    #about .pull{
+      background: rgba(255,255,255,.08);
+      color: var(--cream);
+      border-left-color: #fff;
+    }
+    /* Contact card stays white on bronze for legibility */
+    #contact .card{
+      background: #fff;
+      color: var(--ink);
+      border-color: rgba(0,0,0,.08);
+      box-shadow: 0 12px 30px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.05);
+    }
+    #contact .card a{ color: var(--bronze); }
   </style>
 </head>
 <body>
@@ -158,43 +194,41 @@
   </section>
 
   <section id="about">
-  <div class="container about-grid">
-    <div class="about-text">
-      <h2 class="section-title">About</h2>
-      <p>I write songs about the in-between parts of life — where things don’t always make sense but still matter. Pop-folk melodies, small-town roots, and words that sound like how I talk.</p>
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2 class="section-title">About</h2>
+        <p>I write songs about the in-between parts of life — where things don’t always make sense but still matter. Pop-folk melodies, small-town roots, and words that sound like how I talk.</p>
 
-      <div class="about-highlights">
-        <div>
-          <h4>Sound</h4>
-          <p>Pop-folk with honest lyrics and simple melodies.</p>
+        <div class="about-highlights">
+          <div>
+            <h4>Sound</h4>
+            <p>Pop-folk with honest lyrics and simple melodies.</p>
+          </div>
+          <div>
+            <h4>From</h4>
+            <p>Texas — playing open mics and pop-ups across the state.</p>
+          </div>
+          <div>
+            <h4>Now</h4>
+            <p>Early demos are up. First releases on the way.</p>
+          </div>
         </div>
-        <div>
-          <h4>From</h4>
-          <p>Texas — playing open mics and pop-ups across the state.</p>
-        </div>
-        <div>
-          <h4>Now</h4>
-          <p>Early demos are up. First releases on the way.</p>
+
+        <div class="cta" style="margin-top:1rem">
+          <a class="btn primary" href="/music">Listen</a>
+          <a class="btn secondary" href="/shows">Shows</a>
+          <a class="btn secondary" href="#contact">Contact</a>
         </div>
       </div>
 
-      <div class="cta" style="margin-top:1rem">
-        <a class="btn primary" href="/music">Listen</a>
-        <a class="btn secondary" href="/shows">Shows</a>
-        <a class="btn secondary" href="#contact">Contact</a>
-      </div>
+      <aside class="about-media">
+        <img src="assets/logo.png" alt="Drake Hayden" />
+        <blockquote class="pull">
+          “Simple stories, honest melodies.”
+        </blockquote>
+      </aside>
     </div>
-
-    <aside class="about-media">
-      <!-- Swap this image when you have a photo; for now it falls back to your logo -->
-      <img src="assets/logo.png" alt="Drake Hayden" />
-      <blockquote class="pull">
-        “Simple stories, honest melodies.”
-      </blockquote>
-    </aside>
-  </div>
-</section>
-
+  </section>
 
   <section id="contact">
     <div class="container">
