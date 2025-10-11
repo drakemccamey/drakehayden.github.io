@@ -173,6 +173,14 @@
     /* Ensure secondary buttons stay dark text on white */
     .btn.secondary{ background:#fff; color: var(--navy); }
     #about .btn.primary, #contact .btn.primary{ background: var(--forest); color:#fff; }
+    /* ---- Fix: bring back text inside white highlight cards ---- */
+
+/* Only the FIRST paragraph in About should be white on bronze */
+#about .about-text > p:first-of-type { color: #ffffff; }
+
+/* Card copy stays dark on the white cards */
+#about .about-highlights p { color: var(--ink) !important; }
+#about .about-highlights h4 { color: var(--forest) !important; }
   </style>
 </head>
 <body>
