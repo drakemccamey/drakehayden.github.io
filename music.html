@@ -4,15 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Music — Drake Hayden</title>
-  <meta name="description" content="Hear pop‑folk song snippets from Drake Hayden. Honest demos and early cuts. Support to help fund the first releases." />
+  <meta name="description" content="Hear Drake Hayden’s pop-folk demos and stream on your platform of choice." />
+  <link rel="icon" href="/assets/favicon.png" />
   <style>
     :root{--forest:#2d4a3a;--navy:#162030;--bronze:#a97c50;--cream:#edece8;--ink:#1a1a1a;--line:rgba(169,124,80,.25)}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial;line-height:1.6;color:var(--ink);background:radial-gradient(1200px 600px at 10% -10%, rgba(169,124,80,.07), transparent 60%),radial-gradient(1200px 600px at 110% 0%, rgba(45,74,58,.06), transparent 60%),linear-gradient(180deg,#f9f8f4,var(--cream));background-blend-mode:multiply,multiply,normal}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial;line-height:1.6;color:var(--ink);
+      background:radial-gradient(1200px 600px at 10% -10%, rgba(169,124,80,.07), transparent 60%),radial-gradient(1200px 600px at 110% 0%, rgba(45,74,58,.06), transparent 60%),linear-gradient(180deg,#f9f8f4,var(--cream))}
     a{color:var(--bronze);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{width:min(1100px,92vw);margin:0 auto}
+
     header{position:sticky;top:0;z-index:10;background:var(--navy);color:var(--cream);border-bottom:1px solid rgba(0,0,0,.12);backdrop-filter:saturate(150%) blur(6px)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
     .brand{display:flex;align-items:center;gap:.75rem}
@@ -29,6 +32,12 @@
     section{padding:2.2rem 0}
     section+section{border-top:1px solid var(--line)}
 
+    /* Streaming row */
+    .stream-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .stream-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:10px;box-shadow:0 12px 30px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.05)}
+    .stream-card iframe{width:100%;height:352px;border:0;border-radius:12px}
+
+    /* Tracks */
     .track{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:16px 18px;box-shadow:0 12px 30px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.05)}
     .track h3{margin:.1rem 0;color:var(--forest)}
     .meta{margin:.25rem 0 .5rem;color:#444;font-size:.95rem}
@@ -39,19 +48,18 @@
 
     .note{color:#555;font-size:.9rem;margin-top:.8rem}
 
-    /* Modal */
+    /* Modal (lyrics + support share styles) */
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:1rem;z-index:50}
-    .sheet{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;max-width:520px;width:100%;padding:1rem 1rem 1.1rem;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    .sheet{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;max-width:620px;width:100%;padding:1rem 1rem 1.1rem;box-shadow:0 20px 50px rgba(0,0,0,.25);max-height:85vh;overflow:auto}
     .sheet h3{margin:.2rem 0 .75rem;color:var(--navy)}
-    .payrow{display:flex;gap:.6rem;flex-wrap:wrap}
-    .payrow a{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .85rem;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:#fafafa}
     .close{float:right;border:none;background:transparent;font-size:1.2rem;cursor:pointer}
+    .lyrics{white-space:pre-wrap;line-height:1.5}
 
+    @media(max-width:960px){.stream-grid{grid-template-columns:1fr}}
     @media(max-width:760px){.track{grid-template-columns:1fr}.actions{justify-content:flex-start}}
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="brand">
@@ -66,49 +74,68 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
       <h1>Music</h1>
-      <p class="lead">Early snippets and demos — pop‑folk songs about growing up, falling apart, and trying again. If you want to support a release, tap Support.</p>
+      <p class="lead">Stream the songs, skim the lyrics, or play the private demo snippets below. If you want to help fund releases, hit Support.</p>
     </div>
   </section>
 
-  <!-- Tracks -->
+  <!-- Streaming embeds (replace src with your real links) -->
+  <section aria-label="Streaming">
+    <div class="container stream-grid">
+      <div class="stream-card">
+        <!-- Spotify embed -->
+        <!-- Replace the src with your track/artist/playlist embed -->
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/placeholder" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+      <div class="stream-card">
+        <!-- Apple Music embed (replace with your URL) -->
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" loading="lazy"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+          src="https://embed.music.apple.com/us/artist/placeholder"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks / Demos -->
   <section>
     <div class="container">
-      <!-- Track 1 -->
+      <!-- Carless Things -->
       <div class="track">
         <div>
           <h3>Carless Things</h3>
-          <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
+          <p class="meta">Demo snippet (0:30) • Pop-folk</p>
           <audio controls src="assets/snippets/carless-things.mp3">Your browser does not support the audio element.</audio>
         </div>
         <div class="actions">
+          <button class="btn" data-lyrics="Carless Things">Lyrics</button>
           <button class="btn primary support-btn" data-song="Carless Things">Support Drake</button>
         </div>
       </div>
 
-      <!-- Track 2 -->
+      <!-- Future Tense -->
       <div class="track" style="margin-top:12px">
         <div>
           <h3>Future Tense</h3>
-          <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
+          <p class="meta">Demo snippet (0:30) • Pop-folk</p>
           <audio controls src="assets/snippets/future-tense.mp3"></audio>
         </div>
         <div class="actions">
+          <button class="btn" data-lyrics="Future Tense">Lyrics</button>
           <button class="btn primary support-btn" data-song="Future Tense">Support Drake</button>
         </div>
       </div>
 
-      <!-- Track 3 -->
+      <!-- The Same -->
       <div class="track" style="margin-top:12px">
         <div>
           <h3>The Same</h3>
-          <p class="meta">Demo snippet (0:30) • Pop‑folk</p>
+          <p class="meta">Demo snippet (0:30) • Pop-folk</p>
           <audio controls src="assets/snippets/the-same.mp3"></audio>
         </div>
         <div class="actions">
+          <button class="btn" data-lyrics="The Same">Lyrics</button>
           <button class="btn primary support-btn" data-song="The Same">Support Drake</button>
         </div>
       </div>
@@ -117,21 +144,29 @@
     </div>
   </section>
 
+  <!-- Lyrics Modal -->
+  <div class="overlay" id="lyricsOverlay" aria-hidden="true">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="lyricsTitle">
+      <button class="close" id="closeLyrics" aria-label="Close">×</button>
+      <h3 id="lyricsTitle">Lyrics</h3>
+      <div class="lyrics" id="lyricsBody"></div>
+    </div>
+  </div>
+
   <!-- Support Modal -->
   <div class="overlay" id="supportOverlay" aria-hidden="true">
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="supportTitle">
       <button class="close" id="closeSupport" aria-label="Close">×</button>
       <h3 id="supportTitle">Support Drake</h3>
-      <p style="margin:.4rem 0 1rem;color:#444">Choose a payment option below. (Your note will include the song title.)</p>
-      <div class="payrow" id="payRow">
-        <a id="cashapp" target="_blank" rel="noopener" href="https://cash.app/$drakemccamey">Cash App: $drakemccamey</a>
-        <a id="venmo" target="_blank" rel="noopener" href="https://venmo.com/u/DrakeMcCamey">Venmo: @DrakeMcCamey</a>
-        <a id="paypal" target="_blank" rel="noopener" href="https://paypal.me/drakemccamey">PayPal</a>
+      <p style="margin:.4rem 0 1rem;color:#444">Choose a payment option below. The note will include the song title.</p>
+      <div class="payrow" id="payRow" style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <a id="cashapp" target="_blank" rel="noopener" class="btn" href="https://cash.app/$drakemccamey">Cash App: $drakemccamey</a>
+        <a id="venmo" target="_blank" rel="noopener" class="btn" href="https://venmo.com/u/DrakeMcCamey">Venmo: @DrakeMcCamey</a>
+        <a id="paypal" target="_blank" rel="noopener" class="btn" href="https://paypal.me/drakemccamey">PayPal</a>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="container" style="padding:2.2rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)">
       <p>© <span id="y"></span> Drake Hayden Music</p>
@@ -140,38 +175,71 @@
   </footer>
 
   <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Modal logic
-    const overlay = document.getElementById('supportOverlay');
-    const closeBtn = document.getElementById('closeSupport');
+    // ---- Lyrics content (shortened pulls from your files; you can replace with full text) ----
+    const LYRICS = {
+      "Carless Things": `If you must never talk to me again, baby, will you please
+Hold on to what we used to be
+...By stupid shit I did
+And careless things I said
+If you don’t love me
+I completely understand`,
+      "Future Tense": `I died a thousand times before
+I see you waitin’ at my door
+...I can’t seem to replace the things you said with things that make sense
+And with you I can’t even start to begin to use future tense`,
+      "The Same": `They change like seasons, but I stay the same,
+Roots in the dirt while they chase the flame.
+Their skies are painted, mine just fades to gray,
+I see people change, but I always stay the same.`
+    };
+
+    // ---- Lyrics modal ----
+    const lyrOverlay = document.getElementById('lyricsOverlay');
+    const lyrTitle = document.getElementById('lyricsTitle');
+    const lyrBody = document.getElementById('lyricsBody');
+    const closeLyrics = document.getElementById('closeLyrics');
+
+    document.querySelectorAll('[data-lyrics]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const song = btn.getAttribute('data-lyrics');
+        lyrTitle.textContent = `${song} — Lyrics`;
+        lyrBody.textContent = LYRICS[song] || 'Lyrics coming soon.';
+        lyrOverlay.style.display = 'flex';
+        lyrOverlay.setAttribute('aria-hidden','false');
+      });
+    });
+    const closeL = ()=>{lyrOverlay.style.display='none';lyrOverlay.setAttribute('aria-hidden','true');};
+    lyrOverlay.addEventListener('click',(e)=>{ if(e.target===lyrOverlay) closeL(); });
+    closeLyrics.addEventListener('click', closeL);
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeL(); });
+
+    // ---- Support modal ----
+    const supOverlay = document.getElementById('supportOverlay');
+    const closeSupport = document.getElementById('closeSupport');
     const title = document.getElementById('supportTitle');
     const cash = document.getElementById('cashapp');
     const venmo = document.getElementById('venmo');
     const paypal = document.getElementById('paypal');
 
-    function openModal(song){
-      // Add the song title into the links as a note / memo when supported
+    function openSupport(song){
       const note = encodeURIComponent(`Support for ${song}`);
       cash.href = `https://cash.app/$drakemccamey?note=${note}`;
       venmo.href = `https://venmo.com/u/DrakeMcCamey?txn=pay&note=${note}`;
-      paypal.href = `https://paypal.me/drakemccamey`;
+      paypal.href = `https://paypal.me/drakemccamey`; // PayPal memo happens after click
       title.textContent = `Support Drake — ${song}`;
-      overlay.style.display = 'flex';
-      overlay.setAttribute('aria-hidden','false');
+      supOverlay.style.display = 'flex';
+      supOverlay.setAttribute('aria-hidden','false');
     }
-
-    function closeModal(){
-      overlay.style.display = 'none';
-      overlay.setAttribute('aria-hidden','true');
-    }
+    function closeSup(){ supOverlay.style.display='none'; supOverlay.setAttribute('aria-hidden','true'); }
 
     document.querySelectorAll('.support-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>openModal(btn.dataset.song));
+      btn.addEventListener('click',()=>openSupport(btn.dataset.song));
     });
-    overlay.addEventListener('click',(e)=>{ if(e.target===overlay) closeModal(); });
-    closeBtn.addEventListener('click', closeModal);
-    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
+    supOverlay.addEventListener('click',(e)=>{ if(e.target===supOverlay) closeSup(); });
+    closeSupport.addEventListener('click', closeSup);
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeSup(); });
   </script>
 </body>
 </html>
