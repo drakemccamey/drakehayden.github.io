@@ -16,6 +16,72 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
+   /* Quick actions panel */
+.quick-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.quick-card{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:14px;
+  min-height:100px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+  text-decoration:none;
+  color: var(--navy);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  cursor:pointer;
+}
+.quick-card:hover{
+  transform: translateY(-1px);
+  box-shadow:0 12px 28px rgba(0,0,0,.09);
+  border-color: var(--line);
+}
+.qc-title{
+  font-weight: 800;
+  letter-spacing:.02em;
+  color: var(--forest);
+  font-size: 1.05rem;
+}
+.qc-sub{
+  font-size:.92rem;
+  color:#444;
+  opacity:.95;
+  margin-top:6px;
+}
+.icon-row{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+  opacity:.9;
+}
+.icon-row .ico{
+  width:22px; height:22px;
+  color: var(--navy);
+}
+
+/* Modal for Connect */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:1rem;z-index:50}
+.sheet{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;max-width:420px;width:100%;padding:1rem 1rem 1.1rem;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.sheet h3{margin:.2rem 0 .75rem;color:var(--navy)}
+.connect-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.connect-row a{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:#fafafa;font-weight:600}
+.close{float:right;border:none;background:transparent;font-size:1.2rem;cursor:pointer}
+
+/* Mobile: stack cards 2-per-row then full */
+@media (max-width: 880px){
+  .quick-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+  .quick-grid{ grid-template-columns: 1fr; }
+}
+
     :root {
       --forest: #2d4a3a;
       --navy: #162030;
@@ -128,15 +194,38 @@
       </div>
 
       <!-- Drop in a hero image OR replace with a muted loop video below -->
-      <aside>
-        <img src="assets/logo.png" alt="Drake Hayden portrait" loading="lazy"
-             style="max-width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);" />
-        <!-- Example video slot (commented):
-        <video autoplay muted loop playsinline style="width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);">
-          <source src="assets/hero.mp4" type="video/mp4" />
-        </video>
-        -->
-      </aside>
+     <aside>
+  <!-- Keep your image -->
+  <img src="assets/logo.pngG" alt="Drake Hayden" loading="lazy"
+       style="max-width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);" />
+
+  <!-- Quick actions -->
+  <div class="quick-grid" style="margin-top:14px">
+    <!-- Listen -->
+    <a class="quick-card" href="/music" aria-label="Listen">
+      <div class="qc-title">Listen</div>
+      <div class="qc-sub">Music page</div>
+    </a>
+
+    <!-- Shows -->
+    <a class="quick-card" href="/shows" aria-label="Shows">
+      <div class="qc-title">Shows</div>
+      <div class="qc-sub">Dates & RSVP</div>
+    </a>
+
+    <!-- Connect (modal) -->
+    <button class="quick-card" id="connectBtn" aria-haspopup="dialog" aria-controls="connectOverlay">
+      <div class="qc-title">Connect</div>
+      <div class="icon-row" aria-hidden="true">
+        <!-- simple inline SVGs, no external files needed -->
+        <svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="12" r="3.2"></circle><rect x="3" y="6" width="18" height="14" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect></svg>
+        <svg viewBox="0 0 24 24" class="ico"><path d="M16 3v4.5a3.5 3.5 0 1 1-3.5-3.5h4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="qc-sub">IG / TikTok</div>
+    </button>
+  </div>
+</aside>
+
     </div>
   </section>
 
