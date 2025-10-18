@@ -164,6 +164,32 @@
     }
   </style>
 </head>
+  <!-- Connect modal -->
+<div class="overlay" id="connectOverlay" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="connectTitle">
+    <button class="close" id="closeConnect" aria-label="Close">×</button>
+    <h3 id="connectTitle">Connect</h3>
+    <p style="margin:.4rem 0 1rem;color:#444">Pick where you want to follow along:</p>
+    <div class="connect-row">
+      <a href="https://www.instagram.com/drakehaydenmusic" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- tiny camera icon -->
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+          <rect x="3" y="6" width="18" height="14" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+        </svg>
+        Instagram
+      </a>
+      <a href="https://tiktok.com/@drakehaydenmusic" target="_blank" rel="noopener" aria-label="TikTok">
+        <!-- tiny music note icon -->
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M16 3v4.5a3.5 3.5 0 1 1-3.5-3.5h4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        TikTok
+      </a>
+    </div>
+  </div>
+</div>
+
 <body>
   <header>
     <div class="container nav">
@@ -288,6 +314,26 @@
   </footer>
 
   <script>
+  // existing year code...
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Connect modal logic
+  const connectBtn = document.getElementById('connectBtn');
+  const connectOverlay = document.getElementById('connectOverlay');
+  const closeConnect = document.getElementById('closeConnect');
+
+  function openConnect(){
+    connectOverlay.style.display = 'flex';
+    connectOverlay.setAttribute('aria-hidden','false');
+  }
+  function closeConnectFn(){
+    connectOverlay.style.display = 'none';
+    connectOverlay.setAttribute('aria-hidden','true');
+  }
+  connectBtn?.addEventListener('click', openConnect);
+  closeConnect?.addEventListener('click', closeConnectFn);
+  connectOverlay?.addEventListener('click', (e)=>{ if(e.target === connectOverlay) closeConnectFn(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeConnectFn(); });
     document.getElementById('y').textContent = new Date().getFullYear();
     // Respect user motion preferences for any future animations
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
