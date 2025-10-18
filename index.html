@@ -4,7 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Drake Hayden Music</title>
-  <meta name="description" content="Official landing page for Drake Hayden — pop-folk artist from Texas. Simple stories, honest melodies." />
+  <meta name="description" content="Official site for Drake Hayden — pop-folk artist from Texas. Simple stories, honest melodies." />
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Drake Hayden Music" />
+  <meta property="og:description" content="Pop-folk leaning melodies. Simple stories, honest melodies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/social.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root {
       --forest: #2d4a3a;
@@ -14,180 +24,87 @@
       --ink: #1a1a1a;
       --line: rgba(169,124,80,.25);
     }
-
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
-      line-height: 1.6;
-      color: var(--ink);
+      line-height:1.6; color:var(--ink);
       background:
         radial-gradient(1200px 600px at 10% -10%, rgba(169,124,80,.07), transparent 60%),
         radial-gradient(1200px 600px at 110% 0%, rgba(45,74,58,.06), transparent 60%),
         linear-gradient(180deg, #f9f8f4, var(--cream));
       background-blend-mode: multiply, multiply, normal;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
+    a{color:var(--bronze);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1100px,92vw);margin:0 auto}
 
-    a { color: var(--bronze); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    header{position:sticky;top:0;z-index:10;background:var(--navy);color:var(--cream);border-bottom:1px solid rgba(0,0,0,.12);backdrop-filter:saturate(150%) blur(6px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand img{height:36px;width:auto}
+    .brand span{font-weight:600;letter-spacing:.04em}
+    nav a{color:var(--cream);opacity:.9;margin-left:1rem}
+    nav a:hover{color:var(--bronze);opacity:1}
 
-    .container { width: min(1100px, 92vw); margin: 0 auto; }
-
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: var(--navy); color: var(--cream);
-      border-bottom: 1px solid rgba(0,0,0,.12);
-      backdrop-filter: saturate(150%) blur(6px);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
-    .brand { display: flex; align-items: center; gap: .75rem; }
-    .brand img { height: 36px; width: auto; }
-    .brand span { font-weight: 600; letter-spacing: .04em; }
-    nav a { color: var(--cream); opacity: .9; margin-left: 1rem; }
-    nav a:hover { color: var(--bronze); opacity: 1; }
-
-    .hero {
+    .hero{
+      border-bottom:1px solid rgba(0,0,0,.06);
       background: radial-gradient(1200px 500px at 20% -10%, rgba(169,124,80,.18), transparent 60%),
                   radial-gradient(1200px 500px at 120% 10%, rgba(45,74,58,.18), transparent 60%),
                   linear-gradient(180deg, #f7f6f2, var(--cream));
-      border-bottom: 1px solid rgba(0,0,0,.06);
     }
-    .hero-inner { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; padding: 6rem 0 3rem; }
-    h1 { font-size: clamp(2.2rem, 4vw, 3rem); margin:.8rem 0 .6rem; color: var(--navy); line-height:1.2; }
-    .lead { font-size: clamp(1rem, 1.8vw, 1.125rem); color:#333; max-width: 60ch; }
-    .cta { display:flex; gap:.8rem; margin-top:1.25rem; flex-wrap: wrap; }
-    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius:14px; border:1px solid rgba(0,0,0,.12); font-weight:600; box-shadow: 0 4px 10px rgba(0,0,0,.06); }
-    .btn.primary { background: var(--forest); color: #fff; }
-    .btn.secondary { background: #fff; color: var(--navy); }
+    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding:6rem 0 3rem}
+    h1{font-size:clamp(2.2rem,4vw,3rem);margin:.8rem 0 .6rem;color:var(--navy);line-height:1.2}
+    .lead{font-size:clamp(1rem,1.8vw,1.125rem);color:#333;max-width:60ch}
+    .cta{display:flex;gap:.8rem;margin-top:1.25rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1rem;border-radius:14px;border:1px solid rgba(0,0,0,.12);font-weight:600;box-shadow:0 4px 10px rgba(0,0,0,.06)}
+    .btn.primary{background:var(--forest);color:#fff}
+    .btn.secondary{background:#fff;color:var(--navy)}
 
-    section { padding: 3rem 0; position: relative; }
-    section + section { border-top: 1px solid var(--line); }
-    .section-title { font-size: clamp(1.25rem, 2.4vw, 1.6rem); color: var(--navy); margin: 0 0 .75rem; }
+    section{padding:3rem 0;position:relative}
+    section+section{border-top:1px solid var(--line)}
+    .section-title{font-size:clamp(1.25rem,2.4vw,1.6rem);color:var(--navy);margin:0 0 .75rem}
 
-    .card-row { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card { background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:1rem; box-shadow: 0 12px 30px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.05); }
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
+    .about-text p{max-width:60ch}
+    .about-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1rem 0 0}
+    .about-highlights div{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:.9rem;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .about-highlights h4{margin:.1rem 0 .25rem;color:var(--forest)}
+    .about-media img{width:100%;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.08);aspect-ratio:4/5;object-fit:cover}
+    .pull{margin:.75rem 0 0;padding:.6rem .8rem;font-style:italic;color:#f7f7f7;border-left:3px solid #fff;background:rgba(255,255,255,.08);border-radius:8px}
 
-    footer { padding: 2.5rem 0; color: #fff; background: linear-gradient(180deg, var(--forest), var(--navy)); text-align:center; border-top: 1px solid rgba(0,0,0,.12); }
+    /* Bronze theme for About/Contact */
+    #about,#contact{background:var(--bronze);color:var(--cream);border-top:1px solid rgba(255,255,255,.18)}
+    #about .section-title,#contact .section-title{color:var(--cream)}
+    #about a:not(.btn),#contact a:not(.btn){color:#fff;text-decoration-color:rgba(255,255,255,.6)}
+    #about .about-highlights div{background:#fff;color:var(--ink);border-color:rgba(0,0,0,.06)}
+    #about .about-highlights p{color:var(--ink)!important}
+    #about .about-highlights h4{color:var(--forest)!important}
+    #about .about-text>p:first-of-type{color:#fff}
+    #contact .card{background:#fff;color:var(--ink);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:1rem;box-shadow:0 12px 30px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.05)}
+    #contact .card a{color:var(--bronze)}
+    iframe{width:100%;height:500px;border:none;border-radius:14px}
 
-    iframe { width: 100%; height: 500px; border: none; border-radius: 14px; }
+    footer{padding:2.5rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)}
 
     @media (max-width: 880px){
-      .hero-inner { grid-template-columns: 1fr; padding: 4rem 0 2rem; }
-      .card-row { grid-template-columns: 1fr; }
-      nav { display:none; }
-      iframe { height: 550px; }
+      .hero-inner{grid-template-columns:1fr;padding:4rem 0 2rem}
+      .about-grid{grid-template-columns:1fr}
+      .about-highlights{grid-template-columns:1fr}
+      nav{display:none}
+      iframe{height:550px}
     }
-
-    /* About section layout */
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:2rem;
-      align-items:start;
-    }
-    .about-text p{ max-width:60ch; }
-    .about-highlights{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin:1rem 0 0;
-    }
-    .about-highlights div{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:14px;
-      padding:.9rem;
-      box-shadow:0 8px 20px rgba(0,0,0,.06);
-    }
-    .about-highlights h4{
-      margin:.1rem 0 .25rem;
-      color:var(--forest);
-    }
-    .about-media img{
-      width:100%;
-      border-radius:16px;
-      box-shadow:0 12px 30px rgba(0,0,0,.08);
-      aspect-ratio: 4/5;
-      object-fit: cover;
-    }
-    .pull{
-      margin:.75rem 0 0;
-      padding:.6rem .8rem;
-      font-style:italic;
-      color:#333;
-      border-left:3px solid var(--bronze);
-      background:rgba(169,124,80,.06);
-      border-radius:8px;
-    }
-    @media(max-width:880px){
-      .about-grid{ grid-template-columns:1fr; }
-      .about-highlights{ grid-template-columns:1fr; }
-    }
-
-    /* ---- THEME: Bronze background for About + Contact sections ---- */
-    #about,
-    #contact{
-      background: var(--bronze);
-      color: var(--cream);
-      border-top: 1px solid rgba(255,255,255,.18);
-    }
-    #about .section-title,
-    #contact .section-title{
-      color: var(--cream);
-    }
-    /* Only inline links go white; buttons keep their own colors */
-    #about a:not(.btn),
-    #contact a:not(.btn){
-      color: #ffffff;
-      text-decoration-color: rgba(255,255,255,.6);
-    }
-
-    /* Keep highlight cards readable on bronze */
-    #about .about-highlights div{
-      background:#ffffff;
-      color: var(--ink);
-      border-color: rgba(0,0,0,.06);
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-    }
-
-    /* Pull quote adapts on bronze */
-    #about .pull{
-      background: rgba(255,255,255,.08);
-      color: var(--cream);
-      border-left-color: #fff;
-    }
-
-    /* Contact card stays white on bronze for legibility */
-    #contact .card{
-      background: #fff;
-      color: var(--ink);
-      border-color: rgba(0,0,0,.08);
-      box-shadow: 0 12px 30px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.05);
-    }
-    #contact .card a{ color: var(--bronze); }
-
-    /* —— Fix: readable copy on bronze + keep buttons dark —— */
-    #about .about-text p,
-    #contact .card p { color: #ffffff; } /* crisp white body copy on bronze */
-
-    /* Ensure secondary buttons stay dark text on white */
-    .btn.secondary{ background:#fff; color: var(--navy); }
-    #about .btn.primary, #contact .btn.primary{ background: var(--forest); color:#fff; }
-    /* ---- Fix: bring back text inside white highlight cards ---- */
-
-/* Only the FIRST paragraph in About should be white on bronze */
-#about .about-text > p:first-of-type { color: #ffffff; }
-
-/* Card copy stays dark on the white cards */
-#about .about-highlights p { color: var(--ink) !important; }
-#about .about-highlights h4 { color: var(--forest) !important; }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="assets/logo.png" alt="Drake Hayden Music logo" />
+        <a href="/" aria-label="Home">
+          <img src="assets/logo.png" alt="Drake Hayden Music logo" loading="lazy" />
+        </a>
         <span>Drake Hayden</span>
       </div>
       <nav>
@@ -198,7 +115,7 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" aria-label="Intro">
     <div class="container hero-inner">
       <div>
         <h1>Hi, I’m Drake Hayden — a pop-folk artist from Texas.</h1>
@@ -206,16 +123,24 @@
         <div class="cta">
           <a class="btn primary" href="/music">Listen</a>
           <a class="btn secondary" href="/shows">Shows</a>
-          <a class="btn secondary" href="https://www.instagram.com/drakehaydenmusic" target="_blank">Watch</a>
+          <a class="btn secondary" href="https://www.instagram.com/drakehaydenmusic" target="_blank" rel="noopener">Watch</a>
         </div>
       </div>
+
+      <!-- Drop in a hero image OR replace with a muted loop video below -->
       <aside>
-        <img src="assets/logo.png" alt="Drake Hayden wordmark" style="max-width:100%; border-radius:14px; box-shadow: 0 8px 24px rgba(0,0,0,.08);" />
+        <img src="assets/IMG_5107%202.JPG" alt="Drake Hayden portrait" loading="lazy"
+             style="max-width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);" />
+        <!-- Example video slot (commented):
+        <video autoplay muted loop playsinline style="width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);">
+          <source src="assets/hero.mp4" type="video/mp4" />
+        </video>
+        -->
       </aside>
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" aria-label="About Drake">
     <div class="container about-grid">
       <div class="about-text">
         <h2 class="section-title">About</h2>
@@ -244,24 +169,23 @@
       </div>
 
       <aside class="about-media">
-        <!-- Encode the space in the filename -->
-        <img src="assets/IMG_5107%202.JPG" alt="Drake Hayden" />
+        <img src="assets/IMG_5107%202.JPG" alt="Drake Hayden" loading="lazy" />
         <blockquote class="pull">“Simple stories, honest melodies.”</blockquote>
       </aside>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" aria-label="Contact">
     <div class="container">
       <h2 class="section-title">Contact</h2>
       <div class="card">
         <p>Thanks for stopping by — I’d love to hear from you.</p>
-        <p>For booking or general questions, email me at <a href="mailto:drake@drakehaydenmusic.com">drake@drakehaydenmusic.com</a> or fill out the form below.</p>
-        <iframe src="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI"></iframe>
-        <p style="margin-top:1rem">Follow along:</p>
-        <p>
-          <a href="https://www.instagram.com/drakehaydenmusic" target="_blank">Instagram</a> ·
-          <a href="https://tiktok.com/@drakehaydenmusic" target="_blank">TikTok</a>
+        <p>For booking or general questions, email me at <a href="mailto:drake@drakehaydenmusic.com">drake@drakehaydenmusic.com</a> or use the form.</p>
+        <iframe src="https://forms.zohopublic.com/drakedrake1/form/ContactUs/formperma/9eh7tp_DhAU574nbPLrnghJyzeZ0OqTncZqn2f5TUcI" title="Contact form"></iframe>
+        <p style="margin-top:1rem">Follow along:
+          <a href="https://www.instagram.com/drakehaydenmusic" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://tiktok.com/@drakehaydenmusic" target="_blank" rel="noopener">TikTok</a> ·
+          <a href="https://www.patreon.com/c/DrakeHaydenMusic" target="_blank" rel="noopener">Patreon</a>
         </p>
       </div>
     </div>
@@ -270,12 +194,23 @@
   <footer>
     <div class="container">
       <p>© <span id="y"></span> Drake Hayden Music</p>
-      <p style="opacity:.9; margin-top:.3rem;">Thanks for listening. More music soon.</p>
+      <p style="opacity:.9;margin-top:.3rem">Thanks for listening. More music soon.</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    // Respect user motion preferences for any future animations
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){ document.documentElement.style.scrollBehavior = 'auto'; }
   </script>
+
+  <!-- GA4 (replace G-XXXXXXX) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js', new Date()); gtag('config', 'G-XXXXXXX');
+  </script> -->
 </body>
 </html>
