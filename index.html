@@ -16,72 +16,6 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-   /* Quick actions panel */
-   .quick-grid{
-     display:grid;
-     grid-template-columns: repeat(3, 1fr);
-     gap: 10px;
-   }
-   .quick-card{
-     display:flex;
-     flex-direction:column;
-     align-items:flex-start;
-     justify-content:space-between;
-     padding:14px;
-     min-height:100px;
-     background:#fff;
-     border:1px solid rgba(0,0,0,.08);
-     border-radius:14px;
-     box-shadow:0 8px 20px rgba(0,0,0,.06);
-     text-decoration:none;
-     color: var(--navy);
-     transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-     cursor:pointer;
-   }
-   .quick-card:hover{
-     transform: translateY(-1px);
-     box-shadow:0 12px 28px rgba(0,0,0,.09);
-     border-color: var(--line);
-   }
-   .qc-title{
-     font-weight: 800;
-     letter-spacing:.02em;
-     color: var(--forest);
-     font-size: 1.05rem;
-   }
-   .qc-sub{
-     font-size:.92rem;
-     color:#444;
-     opacity:.95;
-     margin-top:6px;
-   }
-   .icon-row{
-     display:flex;
-     gap:8px;
-     margin-top:8px;
-     opacity:.9;
-   }
-   .icon-row .ico{
-     width:22px; height:22px;
-     color: var(--navy);
-   }
-
-   /* Modal for Connect */
-   .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:1rem;z-index:50}
-   .sheet{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:18px;max-width:420px;width:100%;padding:1rem 1rem 1.1rem;box-shadow:0 20px 50px rgba(0,0,0,.25)}
-   .sheet h3{margin:.2rem 0 .75rem;color:var(--navy)}
-   .connect-row{display:flex;gap:.6rem;flex-wrap:wrap}
-   .connect-row a{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:#fafafa;font-weight:600}
-   .close{float:right;border:none;background:transparent;font-size:1.2rem;cursor:pointer}
-
-   /* Mobile: stack cards 2-per-row then full */
-   @media (max-width: 880px){
-     .quick-grid{ grid-template-columns: repeat(2, 1fr); }
-   }
-   @media (max-width: 520px){
-     .quick-grid{ grid-template-columns: 1fr; }
-   }
-
    :root {
      --forest: #2d4a3a;
      --navy: #162030;
@@ -114,11 +48,18 @@
    nav a{color:var(--cream);opacity:.9;margin-left:1rem}
    nav a:hover{color:var(--bronze);opacity:1}
 
+   /* HERO: add optional wide photo as the last background layer */
    .hero{
      border-bottom:1px solid rgba(0,0,0,.06);
-     background: radial-gradient(1200px 500px at 20% -10%, rgba(169,124,80,.18), transparent 60%),
-                 radial-gradient(1200px 500px at 120% 10%, rgba(45,74,58,.18), transparent 60%),
-                 linear-gradient(180deg, #f7f6f2, var(--cream));
+     background:
+       radial-gradient(1200px 500px at 20% -10%, rgba(169,124,80,.18), transparent 60%),
+       radial-gradient(1200px 500px at 120% 10%, rgba(45,74,58,.18), transparent 60%),
+       linear-gradient(180deg, #f7f6f2, var(--cream)),
+       url("assets/DSC04174%203.JPG"); /* swap if you prefer a different image */
+     background-size: auto, auto, auto, cover;
+     background-position: center, center, center, center;
+     background-blend-mode: multiply, multiply, normal, normal;
+     position: relative;
    }
    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding:6rem 0 3rem}
    h1{font-size:clamp(2.2rem,4vw,3rem);margin:.8rem 0 .6rem;color:var(--navy);line-height:1.2}
@@ -141,6 +82,10 @@
    .about-media img{width:100%;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.08);aspect-ratio:4/5;object-fit:cover}
    .pull{margin:.75rem 0 0;padding:.6rem .8rem;font-style:italic;color:#f7f7f7;border-left:3px solid #fff;background:rgba(255,255,255,.08);border-radius:8px}
 
+   /* About: new photo strip under the copy */
+   .about-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+   .about-strip img{width:100%;border-radius:10px;aspect-ratio:4/3;object-fit:cover}
+
    /* Bronze theme for About/Contact */
    #about,#contact{background:var(--bronze);color:var(--cream);border-top:1px solid rgba(255,255,255,.18)}
    #about .section-title,#contact .section-title{color:var(--cream)}
@@ -159,6 +104,7 @@
      .hero-inner{grid-template-columns:1fr;padding:4rem 0 2rem}
      .about-grid{grid-template-columns:1fr}
      .about-highlights{grid-template-columns:1fr}
+     .about-strip{grid-template-columns:1fr}
      nav{display:none}
      iframe{height:550px}
    }
@@ -194,12 +140,11 @@
         </div>
       </div>
 
-      <!-- Right side: keep your logo + quick actions -->
-     <aside>
-  <img src="assets/logo.png" alt="Drake Hayden wordmark" loading="lazy"
-       style="max-width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);" />
-</aside>
-
+      <!-- Right side: logo only -->
+      <aside>
+        <img src="assets/logo.png" alt="Drake Hayden wordmark" loading="lazy"
+             style="max-width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08);" />
+      </aside>
     </div>
   </section>
 
@@ -222,6 +167,13 @@
             <h4>Now</h4>
             <p>Early demos are up. First releases on the way.</p>
           </div>
+        </div>
+
+        <!-- New 3-photo strip -->
+        <div class="about-strip">
+          <img src="assets/DSC08065%202.JPG" alt="Live show">
+          <img src="assets/IMG_0696%202.JPG" alt="Studio session">
+          <img src="assets/IMG_0403%202.JPG" alt="Candid moment">
         </div>
 
         <div class="cta" style="margin-top:1rem">
@@ -254,7 +206,7 @@
     </div>
   </section>
 
-  <!-- Connect modal (now correctly inside the body, near the end) -->
+  <!-- Connect modal -->
   <div class="overlay" id="connectOverlay" aria-hidden="true">
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="connectTitle">
       <button class="close" id="closeConnect" aria-label="Close">×</button>
@@ -321,3 +273,4 @@
   </script> -->
 </body>
 </html>
+
