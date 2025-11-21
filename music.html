@@ -479,12 +479,14 @@
     </div>
   </footer>
 
-    <audio id="previewPlayer"></audio>
+  <!-- Hidden audio element for previews -->
+  <audio id="previewPlayer"></audio>
 
   <script>
     // year
     document.getElementById('y').textContent = new Date().getFullYear();
 
+    // Connect modal
     const connectBtns = [document.getElementById('connectBtnTop')].filter(Boolean);
     const connectOverlay = document.getElementById('connectOverlay');
     const closeConnect = document.getElementById('closeConnect');
@@ -501,7 +503,53 @@
     closeConnect.addEventListener('click', closeConnectFn);
     connectOverlay.addEventListener('click', (e)=>{ if(e.target === connectOverlay) closeConnectFn(); });
     document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeConnectFn(); });
+
+    // 🔊 Preview button logic
+    (function(){
+      const player = document.getElementById('previewPlayer');
+      const buttons = document.querySelectorAll('.preview-btn');
+      let currentBtn = null;
+      let currentSrc = null;
+
+      function setButtonState(btn, playing){
+        if(!btn) return;
+        btn.textContent = playing ? '⏸ Pause' : '▶ Preview';
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const li = btn.closest('li');
+          const src = li.getAttribute('data-preview');
+          if(!src) return;
+
+          // If clicking the same track while it’s playing, pause it
+          if(currentSrc === src && !player.paused){
+            player.pause();
+            setButtonState(btn, false);
+            return;
+          }
+
+          // Switch to (or start) a preview
+          currentSrc = src;
+          player.src = src;
+          player.play().catch(()=>{});
+
+          // Reset previous button, if any
+          if(currentBtn && currentBtn !== btn){
+            setButtonState(currentBtn, false);
+          }
+          currentBtn = btn;
+          setButtonState(btn, true);
+        });
+      });
+
+      // When a preview ends, reset the button text
+      player.addEventListener('ended', () => {
+        if(currentBtn){
+          setButtonState(currentBtn, false);
+        }
+      });
+    })();
   </script>
 </body>
 </html>
-
