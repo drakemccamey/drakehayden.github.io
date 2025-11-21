@@ -142,8 +142,39 @@
    .pill-row a:hover{
      border-color:var(--bronze);
    }
-
-   footer{padding:2.5rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)}
+   .tracklist li{
+     padding:.15rem 0;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     gap:.75rem;
+   }
+   .track-main{
+     display:flex;
+     align-items:center;
+     gap:.55rem;
+   }
+   .track-title{
+     white-space:nowrap;
+   }
+   .track-pill{
+     font-size:.8rem;
+     padding:.25rem .7rem;
+     border-radius:999px;
+     border:1px solid rgba(0,0,0,.12);
+     background:#fff;
+     color:var(--navy);
+     cursor:pointer;
+     display:inline-flex;
+     align-items:center;
+     gap:.25rem;
+   }
+   .track-pill[disabled]{
+     opacity:.45;
+     cursor:default;
+   }
+    
+    footer{padding:2.5rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)}
 
    /* Connect modal reused from index */
    .overlay{
@@ -273,19 +304,139 @@
     <div class="container">
       <h2 class="section-title">Tracklist</h2>
       <ul class="tracklist">
-        <li><span class="num">1.</span> Future Tense</li>
-        <li><span class="num">2.</span> Carless Things</li>
-        <li><span class="num">3.</span> The Hardest Part</li>
-        <li><span class="num">4.</span> Do It All Again</li>
-        <li><span class="num">5.</span> I Feel Bad 4 U</li>
-        <li><span class="num">6.</span> Mystery</li>
-        <li><span class="num">7.</span> I Can’t Sleep</li>
-        <li><span class="num">8.</span> Doctor Said I’m Fine</li>
-        <li><span class="num">9.</span> Trees</li>
-        <li><span class="num">10.</span> Selfish</li>
-        <li><span class="num">11.</span> Can’t Help It</li>
-        <li><span class="num">12.</span> 281</li>
-        <li><span class="num">13.</span> The Same</li>
+        <!-- 1: has snippet -->
+        <li data-preview="/assets/snippets/future-tense.mp3">
+          <div class="track-main">
+            <span class="num">1.</span>
+            <span class="track-title">Future Tense</span>
+          </div>
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
+          </button>
+        </li>
+
+        <!-- 2: has snippet -->
+        <li data-preview="/assets/snippets/carless-things.mp3">
+          <div class="track-main">
+            <span class="num">2.</span>
+            <span class="track-title">Carless Things</span>
+          </div>
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
+          </button>
+        </li>
+
+        <!-- 3: no snippet yet -->
+        <li>
+          <div class="track-main">
+            <span class="num">3.</span>
+            <span class="track-title">The Hardest Part</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">4.</span>
+            <span class="track-title">Do It All Again</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">5.</span>
+            <span class="track-title">I Feel Bad 4 U</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">6.</span>
+            <span class="track-title">Mystery</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">7.</span>
+            <span class="track-title">I Can’t Sleep</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">8.</span>
+            <span class="track-title">Doctor Said I’m Fine</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">9.</span>
+            <span class="track-title">Trees</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">10.</span>
+            <span class="track-title">Selfish</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">11.</span>
+            <span class="track-title">Can’t Help It</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <li>
+          <div class="track-main">
+            <span class="num">12.</span>
+            <span class="track-title">281</span>
+          </div>
+          <button class="track-pill" type="button" disabled>
+            Coming soon
+          </button>
+        </li>
+
+        <!-- 13: has snippet -->
+        <li data-preview="/assets/snippets/the-same.mp3">
+          <div class="track-main">
+            <span class="num">13.</span>
+            <span class="track-title">The Same</span>
+          </div>
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
+          </button>
+        </li>
       </ul>
 
       <div class="pill-row">
