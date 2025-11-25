@@ -174,7 +174,7 @@
      cursor:default;
    }
     
-    footer{padding:2.5rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)}
+   footer{padding:2.5rem 0;color:#fff;background:linear-gradient(180deg,var(--forest),var(--navy));text-align:center;border-top:1px solid rgba(0,0,0,.12)}
 
    /* Connect modal reused from index */
    .overlay{
@@ -304,7 +304,7 @@
     <div class="container">
       <h2 class="section-title">Tracklist</h2>
       <ul class="tracklist">
-        <!-- 1: has snippet -->
+        <!-- 1: has existing snippet -->
         <li data-preview="/assets/snippets/future-tense.mp3">
           <div class="track-main">
             <span class="num">1.</span>
@@ -315,7 +315,7 @@
           </button>
         </li>
 
-        <!-- 2: has snippet -->
+        <!-- 2: has existing snippet -->
         <li data-preview="/assets/snippets/carless-things.mp3">
           <div class="track-main">
             <span class="num">2.</span>
@@ -326,27 +326,29 @@
           </button>
         </li>
 
-        <!-- 3: no snippet yet -->
-        <li>
+        <!-- 3: NEW snippet -->
+        <li data-preview="/assets/snippets/The%20Hardest%20Part%20DEMO_snippet.m4a">
           <div class="track-main">
             <span class="num">3.</span>
             <span class="track-title">The Hardest Part</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
-        <li>
+        <!-- 4: NEW snippet -->
+        <li data-preview="/assets/snippets/do%20it%20all%20again_snippet.m4a">
           <div class="track-main">
             <span class="num">4.</span>
             <span class="track-title">Do It All Again</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
+        <!-- 5: still no snippet -->
         <li>
           <div class="track-main">
             <span class="num">5.</span>
@@ -357,66 +359,73 @@
           </button>
         </li>
 
-        <li>
+        <!-- 6: NEW snippet -->
+        <li data-preview="/assets/snippets/Mystery%20%281%29_snippet.m4a">
           <div class="track-main">
             <span class="num">6.</span>
             <span class="track-title">Mystery</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
-        <li>
+        <!-- 7: NEW snippet -->
+        <li data-preview="/assets/snippets/I%20Cant%20Sleep_snippet.m4a">
           <div class="track-main">
             <span class="num">7.</span>
             <span class="track-title">I Can’t Sleep</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
-        <li>
+        <!-- 8: NEW snippet (Unstable = Doctor said I'm fine) -->
+        <li data-preview="/assets/snippets/Doctor%20said%20im%20fine%20DEMO%20%281%29_snippet.m4a">
           <div class="track-main">
             <span class="num">8.</span>
             <span class="track-title">Unstable</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
-        <li>
+        <!-- 9: NEW snippet -->
+        <li data-preview="/assets/snippets/Trees_snippet.m4a">
           <div class="track-main">
             <span class="num">9.</span>
             <span class="track-title">Trees</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
-        <li>
+        <!-- 10: NEW snippet -->
+        <li data-preview="/assets/snippets/Selfish%20%28You%20Want%20Me%20Bad%29%20DEMO_snippet.m4a">
           <div class="track-main">
             <span class="num">10.</span>
             <span class="track-title">Selfish</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
-        <li>
+        <!-- 11: NEW snippet -->
+        <li data-preview="/assets/snippets/Cant%20Help%20It_snippet.m4a">
           <div class="track-main">
             <span class="num">11.</span>
             <span class="track-title">Can’t Help It</span>
           </div>
-          <button class="track-pill" type="button" disabled>
-            Coming soon
+          <button class="track-pill preview-btn" type="button">
+            ▶ Preview
           </button>
         </li>
 
+        <!-- 12: still no snippet -->
         <li>
           <div class="track-main">
             <span class="num">12.</span>
@@ -427,7 +436,7 @@
           </button>
         </li>
 
-        <!-- 13: has snippet -->
+        <!-- 13: existing snippet -->
         <li data-preview="/assets/snippets/the-same.mp3">
           <div class="track-main">
             <span class="num">13.</span>
