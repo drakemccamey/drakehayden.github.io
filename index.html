@@ -82,20 +82,14 @@
    .about-media img{width:100%;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.08);aspect-ratio:4/5;object-fit:cover}
    .pull{margin:.75rem 0 0;padding:.6rem .8rem;font-style:italic;color:#f7f7f7;border-left:3px solid #fff;background:rgba(255,255,255,.08);border-radius:8px}
 
-    .about-photos img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* scoot the crop up so your face is in frame */
-.about-photos img.photo-suit {
-  object-position: center top;
-}
-
+    
    /* About: new photo strip under the copy */
    .about-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
    .about-strip img{width:100%;border-radius:10px;aspect-ratio:4/3;object-fit:cover}
+/* Nudge the middle suit photo so your face is in frame */
+.about-strip img.photo-suit {
+  object-position: center 15%;  /* try 10–25% if you want it higher or lower */
+}
 
    /* Bronze theme for About/Contact */
    #about,#contact{background:var(--bronze);color:var(--cream);border-top:1px solid rgba(255,255,255,.18)}
