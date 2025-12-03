@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect — Drake Hayden</title>
+  <meta name="description" content="Connect with Drake Hayden on TikTok, Instagram, and more." />
+
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <!-- reuse your existing header / nav here -->
+  <header class="site-header">
+    <!-- your logo + nav, same as other pages -->
+  </header>
+
+  <main class="page connect-page">
+    <section class="connect-hero">
+      <h1>Connect</h1>
+      <p>Come say hi and keep up with new songs, shows, and late-night chaos.</p>
+    </section>
+
+    <!-- Social row -->
+    <section class="connect-socials">
+      <a
+        class="social-card tiktok"
+        href="https://www.tiktok.com/@drakehaydenmusic"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="social-label">TikTok</span>
+        <span class="social-handle">@drakehaydenmusic</span>
+      </a>
+
+      <a
+        class="social-card instagram"
+        href="https://www.instagram.com/drakehaydenmusic"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="social-label">Instagram</span>
+        <span class="social-handle">@drakehaydenmusic</span>
+      </a>
+    </section>
+
+    <!-- Reels / video section -->
+    <section class="connect-reels">
+      <h2>Watch a few reels</h2>
+      <div class="reel-grid">
+        <figure class="reel">
+          <video
+            src="/assets/reels/reel-1.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+          ></video>
+          <figcaption>“Carless Things” snippet</figcaption>
+        </figure>
+
+        <figure class="reel">
+          <video
+            src="/assets/reels/reel-2.mp4"
+            muted
+            loop
+            playsinline
+            controls
+          ></video>
+          <figcaption>Studio moment</figcaption>
+        </figure>
+
+        <figure class="reel">
+          <video
+            src="/assets/reels/reel-3.mp4"
+            muted
+            loop
+            playsinline
+            controls
+          ></video>
+          <figcaption>Live clip</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Optional: contact / email -->
+    <section class="connect-contact">
+      <h2>Booking & contact</h2>
+      <p>
+        For shows, collabs, or questions, email
+        <a href="mailto:drake@drakehaydenmusic.com">drake@drakehaydenmusic.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <!-- reuse your existing footer -->
+  <footer class="site-footer">
+    <!-- footer content -->
+  </footer>
+</body>
+</html>
