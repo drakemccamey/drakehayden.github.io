@@ -6,49 +6,271 @@
   <title>Connect — Drake Hayden</title>
   <meta name="description" content="Connect with Drake Hayden on TikTok, Instagram, and more." />
 
-  <link rel="icon" href="/assets/favicon.png" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <!-- Inline styles so you don't need a separate CSS file -->
+  <style>
+    :root {
+      --bg: #050812;
+      --bg-soft: #0b1020;
+      --accent: #c5994b;  /* bronze-ish */
+      --text: #f5f1e8;    /* cream */
+      --muted: #9ca3b5;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --radius-lg: 1.5rem;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
 
-  <link rel="stylesheet" href="/assets/styles.css" />
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* Simple header just so the page feels connected to the rest of the site */
+    .site-header {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.85),
+        rgba(2, 6, 23, 0.6)
+      );
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .site-header-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    main.connect-page {
+      flex: 1;
+      padding: 3rem 1.5rem 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .connect-hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .connect-hero h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .connect-hero p {
+      max-width: 30rem;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Social row */
+    .connect-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2.25rem 0 2.75rem;
+      justify-content: center;
+    }
+
+    .social-card {
+      flex: 1 1 220px;
+      max-width: 280px;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.95),
+        rgba(17, 24, 39, 0.8)
+      );
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      align-items: flex-start;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .social-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(197, 153, 75, 0.6);
+    }
+
+    .social-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .social-handle {
+      font-size: 0.98rem;
+    }
+
+    .social-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Reels */
+    .section-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.1rem;
+      color: var(--muted);
+    }
+
+    .connect-reels {
+      margin-bottom: 2.75rem;
+    }
+
+    .reel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .reel {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 0.75rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    .reel video {
+      width: 100%;
+      display: block;
+      border-radius: 1rem;
+      background: #000;
+    }
+
+    .reel figcaption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Contact block */
+    .connect-contact {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
+      padding: 1.5rem 1.3rem;
+    }
+
+    .connect-contact p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .connect-contact a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(197, 153, 75, 0.4);
+    }
+
+    .connect-contact a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .connect-contact strong {
+      color: var(--text);
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 1.5rem 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border-soft);
+      background: rgba(2, 6, 23, 0.95);
+    }
+
+    @media (max-width: 640px) {
+      main.connect-page {
+        padding-top: 2.5rem;
+      }
+
+      .connect-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- reuse your existing header / nav here -->
   <header class="site-header">
-    <!-- your logo + nav, same as other pages -->
+    <div class="site-header-title">Drake Hayden • Music</div>
   </header>
 
-  <main class="page connect-page">
+  <main class="connect-page">
     <section class="connect-hero">
       <h1>Connect</h1>
-      <p>Come say hi and keep up with new songs, shows, and late-night chaos.</p>
+      <p>Pick where you want to follow along — new songs, shows, and late-night chaos all live here first.</p>
     </section>
 
-    <!-- Social row -->
     <section class="connect-socials">
       <a
-        class="social-card tiktok"
+        class="social-card"
         href="https://www.tiktok.com/@drakehaydenmusic"
         target="_blank"
         rel="noopener"
       >
         <span class="social-label">TikTok</span>
         <span class="social-handle">@drakehaydenmusic</span>
+        <span class="social-note">clips, chaos, and new song teasers</span>
       </a>
 
       <a
-        class="social-card instagram"
+        class="social-card"
         href="https://www.instagram.com/drakehaydenmusic"
         target="_blank"
         rel="noopener"
       >
         <span class="social-label">Instagram</span>
         <span class="social-handle">@drakehaydenmusic</span>
+        <span class="social-note">photos, reels, and show posts</span>
       </a>
     </section>
 
-    <!-- Reels / video section -->
     <section class="connect-reels">
-      <h2>Watch a few reels</h2>
+      <h2 class="section-title">Reels</h2>
       <div class="reel-grid">
         <figure class="reel">
           <video
@@ -59,7 +281,7 @@
             playsinline
             controls
           ></video>
-          <figcaption>“Carless Things” snippet</figcaption>
+          <figcaption>“Carless Things” live snippet</figcaption>
         </figure>
 
         <figure class="reel">
@@ -81,24 +303,22 @@
             playsinline
             controls
           ></video>
-          <figcaption>Live clip</figcaption>
+          <figcaption>Open mic night</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- Optional: contact / email -->
     <section class="connect-contact">
-      <h2>Booking & contact</h2>
       <p>
-        For shows, collabs, or questions, email
-        <a href="mailto:drake@drakehaydenmusic.com">drake@drakehaydenmusic.com</a>.
+        <strong>Booking, shows, or collabs?</strong><br />
+        Email <a href="mailto:drake@drakehaydenmusic.com">drake@drakehaydenmusic.com</a>
+        and we’ll figure something out.
       </p>
     </section>
   </main>
 
-  <!-- reuse your existing footer -->
   <footer class="site-footer">
-    <!-- footer content -->
+    © Drake Hayden Music — thanks for listening.
   </footer>
 </body>
 </html>
